@@ -19,3 +19,12 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
+
+Route::get('products/displaygrid', 'productController@displaygrid')->name('products.displaygrid');
+
+
+//Route::resource('bookings', 'bookingController');
+
+//Route::resource('orderdetails', 'orderdetailsController');
+
+//Route::resource('products', 'productController');
