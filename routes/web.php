@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () {  
     return view('welcome');
 });
 
@@ -21,6 +21,8 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->middleware('verified');
 
 Route::get('products/displaygrid', 'productController@displaygrid')->name('products.displaygrid');
+Route::get('products/additem/{id}', 'productController@additem')->name('products.additem');
+
 
 
 //Route::resource('bookings', 'bookingController');
