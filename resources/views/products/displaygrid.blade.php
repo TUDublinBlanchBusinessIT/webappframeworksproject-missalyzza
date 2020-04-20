@@ -16,7 +16,8 @@
 			<li><a href="<?php echo e(url('/login'));?>"><span style="font-size:30px;margin-top:0%" class="glyphicon glyphicon-log-in navbar-btn"></span></a></li>
 			<li><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-check navbar-btn"></span></li> 
             <li><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li> 
-			<li><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-trash navbar-btn"></span></li> 
+			<li><div class="navbar-text" id="shoppingcart" style="font-size:12pt;margin-left:0px;margin-right:0px;">{{$totalItems}}</div></li> 
+			<li><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-trash"></span></li> 
             
 	</div>
 	
