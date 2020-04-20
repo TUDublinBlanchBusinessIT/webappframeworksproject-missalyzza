@@ -6,18 +6,18 @@
 		<div class="container">
           <div class="navbar-header">
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
+                <a class="navbar-brand" href="<?php echo e(url('/')); ?>" style="margin-top:20px">
                     Nail Salon For You!
                 </a>
            </div>
 			
                
         <ul class="list-inline nav navbar-nav navbar-right">
-			<li><a href="<?php echo e(url('/login'));?>"><span style="font-size:30px;margin-top:0%" class="glyphicon glyphicon-log-in navbar-btn"></span></a></li>
-			<li><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-check navbar-btn"></span></li> 
-            <li><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li> 
-			<li><div class="navbar-text" id="shoppingcart" style="font-size:12pt;margin-left:0px;margin-right:0px;">{{$totalItems}}</div></li> 
-			<li><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-trash"></span></li> 
+			<li><a href="<?php echo e(url('/login'));?>"><span style="font-size:30px;" class="glyphicon glyphicon-log-in navbar-btn"></span></a></li>
+			<li><span style="font-size:30px;margin-right:0px;margin-top:22px;" class="glyphicon glyphicon-check navbar-btn"></span></li> 
+            <li><span style="font-size:30px;margin-top:22px;;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li> 
+			<li><div class="navbar-text" id="shoppingcart" style="font-size:12pt;margin-left:0px;margin-right:0px;margin-top:22px;">{{$totalItems}}</div></li> 
+			<li><span id="emptycart" style="font-size:30px;margin-top:22px;" class="glyphicon glyphicon-trash"></span></li> 
             
 	</div>
 	
@@ -53,6 +53,16 @@
     @if ($j==3) @php $j=0 @endphp </div> @endif 
 @endforeach
 <script>
+$("#emptycart").click(function() { $.ajax({ 
+    type: "get", url: "{{ url('products/emptycart')   }}",
+    success: function() { 
+        $('#shoppingcart').text(0); 
+    }, 
+    error: function() { 
+        alert("problem communicating with the server");
+    } 
+  }); 
+}); 
 $(".bth,.addItem").click(function() {
     var total = parseInt($('#shoppingcart').text());
     var i=$(this).val();
