@@ -21,6 +21,26 @@ class orderdetailsController extends AppBaseController
         $this->orderdetailsRepository = $orderdetailsRepo;
     }
 	
+	public function placeorder(Request $request)
+	{
+		$thisOrder = new \App\Models\Orderdetails();
+		$thisOrder->orderdate = (new \DateTime())->format("Y-m-d H:i:s");
+		$thisOrder->save();
+		$orderID = $thisOrder->id;
+		$productids = $request->productid;
+		$quantities = $request->quantity;
+		for($i=0;$i<sizeof($productids);$i++) {
+			$thisBooking = new \App\Models\Booking()  ;
+			$thisBooking->orderid = $orderID;
+			$thisBooking->productid = $productids[$i];
+			$thisBooking->quantity = $quantities[$i];
+			$thisBooking->save();
+		}
+		Session::forget('cart');
+		Flash::success("Your Appointment has been Saved! ");
+		return redirect(route('products.displaygrid'));
+	}
+	
 	public function checkout()
 	{
 		if (Session::has('cart')) {

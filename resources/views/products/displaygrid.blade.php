@@ -6,7 +6,7 @@
 		<div class="container">
           <div class="navbar-header">
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="<?php echo e(url('/')); ?>" style="margin-top:20px">
+                <a class="navbar-brand" href="<?php echo route('products.displaygrid');?>" style="margin-top:20px">
                     Nail Salon For You!
                 </a>
            </div>
@@ -27,9 +27,9 @@
 <p style="font-size:70pt;text-align:center;"> Nail Salon </p>
 <div>
  <ul class="list-inline" style="text-align:center;font-size:25pt;margin-bottom:20pt;font-color:black">
-    <li><a href="#">Home</a></li> |
+    <li><a href="<?php echo route('products.displaygrid');?>">Home</a></li> |
 	<li><a href="#">Services</a></li> |
-    <li><a href="#">Booking</a></li> |
+    <li><a href="<?php echo route('orderdetails.checkout');?>">Booking</a></li> |
     <li><a href="#">About</a></li>
   </ul>
 </div>
