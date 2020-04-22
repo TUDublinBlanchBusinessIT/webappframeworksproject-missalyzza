@@ -23,6 +23,8 @@ Route::get('/home', 'HomeController@index')->middleware('verified');
 Route::get('products/displaygrid', 'productController@displaygrid')->name('products.displaygrid');
 Route::get('products/additem/{id}', 'productController@additem')->name('products.additem');
 Route::get('products/emptycart', 'productController@emptycart')->name('products.emptycart');
+Route::get('orderdetails/checkout', 'orderdetailsController@checkout')->name('orderdetails.checkout');
+
 
 
 

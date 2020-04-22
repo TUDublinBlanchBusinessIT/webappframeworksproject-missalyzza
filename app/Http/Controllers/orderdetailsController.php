@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Session;
 
 class orderdetailsController extends AppBaseController
 {
@@ -19,6 +20,24 @@ class orderdetailsController extends AppBaseController
     {
         $this->orderdetailsRepository = $orderdetailsRepo;
     }
+	
+	public function checkout()
+	{
+		if (Session::has('cart')) {
+			$cart = Session::get('cart');
+			$lineitems = array();
+			foreach ($cart as $productid => $qty) {
+				$lineitem['product'] = \App\Models\Product::find($productid);
+				$lineitem['qty'] = $qty;
+				$lineitems[] = $lineitem;
+			}
+			return view('orderdetails.checkout')->with('lineitems', $lineitems);
+		}
+		else {
+			Flash::error("There are no items in your cart");
+			return redirect(route('products.displaygrid'));
+		}
+	}
 
     /**
      * Display a listing of the orderdetails.
