@@ -17,7 +17,8 @@
 			<li><a href="<?php echo route('orderdetails.checkout');?>"><span style="font-size:30px;margin-top:8px;" class="glyphicon glyphicon-check navbar-btn"></span></a></li>
             <li><span style="font-size:30px;margin-top:23px;;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li> 
 			<li><div class="navbar-text" id="shoppingcart" style="font-size:12pt;margin-left:0px;margin-right:0px;margin-top:30px;">{{$totalItems}}</div></li> 
-			<li><span id="emptycart" style="font-size:30px;margin-top:23px;" class="glyphicon glyphicon-trash"></span></li> 
+			<li><span id="emptycart" style="font-size:30px;margin-top:23px;" class="glyphicon glyphicon-trash"></span></li>
+			<li><a href="<?php echo e(url('/logout'));?>"><span style="font-size:30px;" class="glyphicon glyphicon-log-out navbar-btn"></span></a></li>
             
 	</div>
 	
@@ -32,6 +33,7 @@
     <li><a href="<?php echo route('orderdetails.checkout');?>">Booking</a></li> |
     <li><a href="#">About</a></li>
   </ul>
+  
 </div>
 </div>
 </div>

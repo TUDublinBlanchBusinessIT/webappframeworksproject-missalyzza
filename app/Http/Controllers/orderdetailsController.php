@@ -23,26 +23,31 @@ class orderdetailsController extends AppBaseController
 	
 	public function placeorder(Request $request)
 	{
-		$thisOrder = new \App\Models\Orderdetails();
-		$thisOrder->orderdate = (new \DateTime())->format("Y-m-d H:i:s");
-		$thisOrder->save();
-		$orderID = $thisOrder->id;
-		$productids = $request->productid;
-		$quantities = $request->quantity;
-		for($i=0;$i<sizeof($productids);$i++) {
-			$thisBooking = new \App\Models\Booking()  ;
-			$thisBooking->orderid = $orderID;
-			$thisBooking->productid = $productids[$i];
-			$thisBooking->quantity = $quantities[$i];
-			$thisBooking->save();
-		}
+		$thisBooking = new \App\Models\Booking();
+		$thisBooking->firstname= $request->firstname;
+		$thisBooking->surname= $request->surname;
+		$thisBooking->bookingdate= $request->bookingdate;
+		$thisBooking->bookingtime= $request->bookingtime;
+		$thisBooking->productid = $request->productid;
+		$thisBooking->save();
+		$bookingID = $thisBooking->id;
+		$productid = $request->productid;
+		$thisOrderDetails = new \App\Models\OrderDetails();
+		$thisOrderDetails->bookingid = $bookingID;
+		$thisOrderDetails->productid = $productid;
+		$thisOrderDetails->save();
+		
+		
+		
+		
+		
 		Session::forget('cart');
-		Flash::success("Your Appointment has been Saved! ");
+		Flash::success("See you soon!");
 		return redirect(route('products.displaygrid'));
 	}
 	
 	public function checkout()
-	{
+	{ 
 		if (Session::has('cart')) {
 			$cart = Session::get('cart');
 			$lineitems = array();
@@ -193,3 +198,4 @@ class orderdetailsController extends AppBaseController
         return redirect(route('orderdetails.index'));
     }
 }
+

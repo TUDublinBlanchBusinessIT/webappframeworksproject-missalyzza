@@ -10,7 +10,7 @@
   </ul>
 </div>
 <H2>Place Order</h2> 
-{{ Form::open(array('url' => 'orderdetails/placeorder', 'method' => 'post')) }} 
+{{ Form::open(array('url' => 'orderdetails/placeorder', 'method' => 'post')) }}
 @csrf
 <div class="panel panel-danger class" style="padding:20pt"> 
 	<div class="form-group">
@@ -28,14 +28,16 @@
     {!! Form::date('bookingdate', null, ['class' => 'form-control','id'=>'bookingdate']) !!}
 	</div>
 	
+ 
+	
 	<div class="form-group">
     {!! Form::label('bookingtime', 'Bookingtime:') !!}
-    {!! Form::time('bookingtime', null, ['class' => 'form-control','id'=>'bookingtime']) !!}
+    {!! Form::time('bookingtime', null, ['class' => 'form-control']) !!}
 	</div>
 	
 	<table class="table table-condensed table-bordered"> 
     <thead> 
-        <tr><th>Id</th><th>Name</th><th>Price</th><th>Quantity</th>
+        <tr><th>Id</th><th>Name</th><th>Price</th><th>
         </tr>
     </thead> 
     <tbody> 
@@ -43,10 +45,9 @@
     @foreach ($lineitems as $lineitem) 
         @php $product=$lineitem['product']; @endphp 
         <tr> 
-            <td><input size="3" style="border:none" type="text" name="productid[]" readonly value="{{ $product->id }}"></td> 
+            <td><input size="3" style="border:none" type="text" name="productid" readonly value="{{ $product->id }}"></td> 
               <td>{{ $product->name }}</td>
-              <td><div class="price">{{ $product->price }}</div></td> 
-              <td> <input size="3" style="border:none" class="qty" type="text" name="quantity[]" readonly value="<?php echo $lineitem['qty'] ?>"> </td> 
+              <td><div class="form-control" name="price">{{ $product->price }}</div></td> 
               
               @php $ttlQty = $ttlQty + $lineitem['qty']; $ttlCost = $ttlCost + ($product->price*$lineitem['qty']); 
               @endphp 
@@ -54,12 +55,9 @@
 	</div>
 </div>
 
-		<script type="text/javascript">
-			$('#bookingdate').datetimepicker({
-				format: 'YYYY-MM-DD HH:mm:ss',
-				useCurrent: false
-			})
-		</script>
+
+
+	
 
     @endforeach
     </tbody> 

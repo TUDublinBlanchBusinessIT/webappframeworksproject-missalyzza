@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Session;
 
 class bookingController extends AppBaseController
 {
@@ -19,6 +20,7 @@ class bookingController extends AppBaseController
     {
         $this->bookingRepository = $bookingRepo;
     }
+	
 
     /**
      * Display a listing of the booking.

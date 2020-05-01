@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 
 Auth::routes(['verify' => true]);
+Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/home','memberController@index')->name('home');
+
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
 
