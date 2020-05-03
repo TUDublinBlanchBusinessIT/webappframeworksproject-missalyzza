@@ -4,7 +4,7 @@
 <div>
  <ul class="list-inline" style="text-left:center;font-size:25pt;margin-bottom:50pt;font-color:black;margin-top:50pt;">
     <li><a href="<?php echo route('products.displaygrid');?>">Home</a></li> |
-	<li><a href="#">Services</a></li> |
+	<li><a href="<?php echo route('products.showproduct');?>">Services</a></li> |
     <li><a href="#">Booking</a></li> |
     <li><a href="#">About</a></li>
   </ul>
@@ -47,7 +47,7 @@
         <tr> 
             <td><input size="3" style="border:none" type="text" name="productid" readonly value="{{ $product->id }}"></td> 
               <td>{{ $product->name }}</td>
-              <td><div class="form-control" name="price">{{ $product->price }}</div></td> 
+              <td><div name="price">{{ $product->price }}</div></td> 
               
               @php $ttlQty = $ttlQty + $lineitem['qty']; $ttlCost = $ttlCost + ($product->price*$lineitem['qty']); 
               @endphp 

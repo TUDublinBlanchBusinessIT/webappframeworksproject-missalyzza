@@ -35,8 +35,8 @@ class productController extends AppBaseController
 		else {
 			$totalItems=0;
 			echo "no cart";
-		}
-    return view('products.displaygrid')->with('products',$products)->with('totalItems',$totalItems);
+	}
+	return view('products.displaygrid')->with('products',$products)->with('totalItems',$totalItems);
 	}
 	  public function emptycart()
      {
@@ -56,12 +56,18 @@ class productController extends AppBaseController
             $cart[$productid]=1; //new product in cart
         }
     }
-    else {
-        $cart[$productid]=1; //new cart
-    }
-    Session::put('cart', $cart);
-    return Response::json(['success'=>true,'total'=>$cart[$productid]],200);
-}
+		else {
+			$cart[$productid]=1; //new cart
+		}
+		Session::put('cart', $cart);
+		return Response::json(['success'=>true,'total'=>$cart[$productid]],200);
+	}
+	
+	public function showProduct(Request $request)
+	{
+		$products=\App\Models\Product::all();
+		return view('products.showproduct')->with('products',$products);    
+	}
 
 
     /**

@@ -29,6 +29,7 @@ class orderdetailsController extends AppBaseController
 		$thisBooking->bookingdate= $request->bookingdate;
 		$thisBooking->bookingtime= $request->bookingtime;
 		$thisBooking->productid = $request->productid;
+		$thisBooking->fee= $request->price;
 		$thisBooking->save();
 		$bookingID = $thisBooking->id;
 		$productid = $request->productid;

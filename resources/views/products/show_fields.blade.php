@@ -4,12 +4,6 @@
     <p>{{ $product->name }}</p>
 </div>
 
-<!-- Description Field -->
-<div class="form-group">
-    {!! Form::label('description', 'Description:') !!}
-    <p>{{ $product->description }}</p>
-</div>
-
 <!-- Price Field -->
 <div class="form-group">
     {!! Form::label('price', 'Price:') !!}

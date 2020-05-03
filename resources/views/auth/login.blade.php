@@ -40,7 +40,7 @@
 
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Sign in to book appointment!</p>
+        <p class="login-box-msg">Sign in to book your appointment!</p>
 
         <form method="post" action="{{ url('/login') }}">
             @csrf
@@ -75,7 +75,8 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat"><a href="<?php echo route('products.displaygrid');?>">Sign In</a></button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat" style="background:linear-gradient(to bottom, #ad86bd 5%, #ffadbb 100%);
+						background-color:#ad86bd;margin-bottom:10pt"><a href="<?php echo route('products.displaygrid');?>">Sign In</a></button>
                 </div>
                 <!-- /.col -->
             </div>

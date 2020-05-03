@@ -19,10 +19,16 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('/home','memberController@index')->name('home');
 
 
-Route::get('/home', 'HomeController@index')->middleware('verified');
+Route::get('products/showproduct', 'productController@showproduct')->name('products.showproduct');
+
+
+
+
+
+
+Route::get('/home', 'productController@displaygrid')->middleware('verified');
 
 Route::get('products/displaygrid', 'productController@displaygrid')->name('products.displaygrid');
 Route::get('products/additem/{id}', 'productController@additem')->name('products.additem');
@@ -40,3 +46,5 @@ Route::post('orderdetails/placeorder', 'orderdetailsController@placeorder')->nam
 //Route::resource('orderdetails', 'orderdetailsController');
 
 //Route::resource('products', 'productController');
+
+//Route::resource('productratings', 'productratingController');

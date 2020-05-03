@@ -2,24 +2,24 @@
 
 namespace App\Repositories;
 
-use App\Models\product;
+use App\Models\productrating;
 use App\Repositories\BaseRepository;
 
 /**
- * Class productRepository
+ * Class productratingRepository
  * @package App\Repositories
- * @version May 2, 2020, 12:38 pm UTC
+ * @version May 2, 2020, 12:37 pm UTC
 */
 
-class productRepository extends BaseRepository
+class productratingRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'name',
-        'price',
-        'image'
+        'rating',
+        'comment',
+        'courtid'
     ];
 
     /**
@@ -37,6 +37,6 @@ class productRepository extends BaseRepository
      **/
     public function model()
     {
-        return product::class;
+        return productrating::class;
     }
 }

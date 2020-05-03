@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model as Model;
 /**
  * Class product
  * @package App\Models
- * @version April 14, 2020, 7:54 pm UTC
+ * @version May 2, 2020, 12:38 pm UTC
  *
  * @property \Illuminate\Database\Eloquent\Collection bookings
  * @property \Illuminate\Database\Eloquent\Collection orderdetails
+ * @property \App\Models\Productrating productrating
  * @property string name
- * @property string description
  * @property number price
  * @property string image
  */
@@ -29,7 +29,6 @@ class product extends Model
 
     public $fillable = [
         'name',
-        'description',
         'price',
         'image'
     ];
@@ -42,7 +41,6 @@ class product extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
-        'description' => 'string',
         'price' => 'float',
         'image' => 'string'
     ];
@@ -70,5 +68,13 @@ class product extends Model
     public function orderdetails()
     {
         return $this->hasMany(\App\Models\Orderdetail::class, 'productid');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     **/
+    public function productrating()
+    {
+        return $this->hasOne(\App\Models\Productrating::class);
     }
 }

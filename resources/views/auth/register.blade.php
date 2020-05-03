@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>InfyOm Laravel Generator | Registration Page</title>
+    <title>Register Here!</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -34,11 +34,11 @@
 <body class="hold-transition register-page">
 <div class="register-box">
     <div class="register-logo">
-        <a href="{{ url('/home') }}"><b>InfyOm </b>Generator</a>
+        <a href="{{ url('/home') }}"><b>Register to Start Pampering Yourself!</a>
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">Register a new membership</p>
+        <p class="login-box-msg">Register Now!</p>
 
         <form method="post" action="{{ url('/register') }}">
             @csrf
@@ -97,7 +97,8 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat" style="background:linear-gradient(to bottom, #ad86bd 5%, #ffadbb 100%);
+						background-color:#ad86bd;margin-bottom:10pt"><a href="<?php echo route('products.displaygrid');?>">Register</a></button>
                 </div>
                 <!-- /.col -->
             </div>
